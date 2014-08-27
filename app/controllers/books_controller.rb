@@ -1,2 +1,2 @@
-class BooksController < ApplicationController::Base
+class BooksController < ApplicationController
 end
