@@ -1,0 +1,4 @@
+defaults:
+  migrate: true
+  precompile_assets: false
+  bundle_without: "development test"
