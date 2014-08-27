@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: books_development
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: books_test
+  min_messages: warning
