@@ -9,8 +9,9 @@ response = reynard.
   execute
 
 if response.success?
+  puts "BOOKS"
   response.object.each do |book|
-    pp book.to_h
+    puts "* #{book.name}"
   end
 else
   warn "🔥 #{response.code}"
