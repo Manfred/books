@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../config/environment'
+
+reynard = Reynard.new(filename: './openapi/specification.yml')
+response = reynard.
+  operation('listBooks').
+  execute
+
+if response.success?
+  response.object.each do |book|
+    pp book.to_h
+  end
+else
+  warn "🔥 #{response.code}"
+  warn response.parsed_body.inspect
+end
