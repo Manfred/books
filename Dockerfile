@@ -28,9 +28,6 @@ COPY . .
 
 RUN bundle exec bootsnap precompile app/ lib/
 
-# Starting off by serving assets through Puma.
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
-
 # Final stage for app image
 FROM base
 
