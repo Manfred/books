@@ -8,7 +8,7 @@ gem 'sqlite3'
 
 gem 'bootsnap', require: false
 
-gem 'reynard', path: '../reynard'
+gem 'reynard'
 
 group :development, :test do
   gem 'rubocop', require: false
