@@ -1,0 +1,35 @@
+name: Test
+on: push
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          # Default database that is created when the image is first started.
+          POSTGRES_DB: books_ci
+          # Sets the superuser username and password for PostgreSQL.
+          POSTGRES_USER: github
+          POSTGRES_PASSWORD: eeY8Caevmo9aeCha
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          # Uses the Ruby version from .ruby-version
+          bundler-cache: true
+      - uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+
+      - run: cp .github/database.yml config/database.yml
+      - run: bundle exec rubocop
+      - run: bundle exec rails db:setup
+      - run: bundle exec rails test
