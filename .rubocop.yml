@@ -1,0 +1,40 @@
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - bin/bundle
+    - db/schema.rb
+    - db/*_schema.rb
+    - vendor/**/*
+
+Layout/LineLength:
+  Enabled: true
+  Max: 100
+
+Metrics/BlockLength:
+  Exclude:
+    - config/routes.rb
+    - test/**/*_test.rb
+
+Metrics/ClassLength:
+  Exclude:
+    - test/**/*_test.rb
+
+Metrics/MethodLength:
+  CountAsOne:
+    - array
+    - hash
+    - heredoc
+    - method_call
+  Exclude:
+    - db/migrate/*.rb
+
+Naming/PredicateMethod:
+  # Overzealous matches on anything that returns a boolean and generally not helpful.
+  Enabled: false
+
+Style/AsciiComments:
+  # Unicode is fine in comments.
+  Enabled: false
+Style/Documentation:
+  Enabled: false
