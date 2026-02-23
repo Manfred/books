@@ -7,7 +7,7 @@ info:
 servers:
   - url: https://books.plz2.work
     description: Public server used for integration testing with Reynard.
-  - urk: http://127.0.0.1:3000
+  - url: http://127.0.0.1:3000
     description: Development server.
 tags:
   - name: books
